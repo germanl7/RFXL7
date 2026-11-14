@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#070b16">
+  <meta name="description" content="NEXUS AI — Centro de inteligencia personal.">
+  <title>NEXUS AI — Centro de inteligencia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" aria-label="Nexus AI inicio"><span class="brand-mark"><i></i><i></i><i></i></span><span>NEXUS<span class="brand-ai"> AI</span><small>INTELLIGENCE HUB</small></span></a>
+      <button class="new-chat" id="newChat"><span>＋</span> Nueva conversación <kbd>⌘ K</kbd></button>
+      <div class="side-label">ESPACIO DE TRABAJO</div>
+      <nav class="nav-list">
+        <button class="nav-item active" data-view="chat"><span>◈</span> Asistente <span class="nav-dot"></span></button>
+        <button class="nav-item" data-view="notes"><span>▤</span> Mis notas</button>
+        <button class="nav-item" data-view="calculator"><span>⌗</span> Calculadora</button>
+      </nav>
+      <div class="history-head"><span class="side-label">RECIENTES</span><button id="clearHistory" title="Borrar historial">···</button></div>
+      <div class="history-list" id="historyList"><p class="empty-history">Tus conversaciones aparecerán aquí.</p></div>
+      <div class="sidebar-bottom">
+        <div class="system-status"><span class="status-light"></span><span><b>Sistema operativo</b><small>Interfaz local activa</small></span><span class="status-pulse"></span></div>
+        <button class="profile" id="settingsBtn"><span class="avatar">N</span><span><b>Mi espacio</b><small>Configuración</small></span><span class="profile-more">⚙</span></button>
+      </div>
+    </aside>
+    <main class="main-area">
+      <header class="topbar"><button class="mobile-menu" id="menuBtn">☰</button><div class="breadcrumb">NEXUS <span>/</span> <b id="crumb">ASISTENTE</b></div><div class="top-actions"><span class="top-status"><i></i> ONLINE</span><button class="icon-button" id="themeBtn" title="Cambiar apariencia">◐</button><button class="user-chip">N</button></div></header>
+      <section class="view active" id="chatView">
+        <div class="welcome" id="welcome">
+          <div class="eyebrow"><span class="eyebrow-line"></span> TU CENTRO DE INTELIGENCIA <span class="eyebrow-line"></span></div>
+          <div class="core-wrap"><div class="core-ring ring-a"></div><div class="core-ring ring-b"></div><div class="core-ring ring-c"></div><div class="core"><span class="core-symbol">N</span><span class="core-orbit"></span></div><span class="core-caption">NEXUS CORE <i>●</i></span></div>
+          <h1>Piensa más lejos.<br><span>Hazlo posible.</span></h1>
+          <p class="welcome-copy">Tu espacio digital para organizar ideas, resolver dudas<br class="desktop-only"> y convertir pensamientos en acción.</p>
+          <div class="suggestions"><button class="suggestion" data-prompt="Dame ideas para un proyecto creativo"><span>✳</span><b>Inspiración</b><small>Ideas para crear algo nuevo</small><i>↗</i></button><button class="suggestion" data-prompt="Ayúdame a organizar mis tareas de hoy"><span>▦</span><b>Organización</b><small>Ordena mis pendientes</small><i>↗</i></button><button class="suggestion" data-prompt="Explícame un tema difícil de forma sencilla"><span>⌁</span><b>Aprendizaje</b><small>Entiende algo paso a paso</small><i>↗</i></button></div>
+        </div>
+        <div class="messages" id="messages" aria-live="polite"></div>
+        <div class="composer-wrap"><div class="composer"><textarea id="promptInput" rows="1" placeholder="Escribe tu mensaje a Nexus..." aria-label="Escribe tu mensaje"></textarea><div class="composer-footer"><span class="composer-hint"><span>↵</span> para enviar · Shift + ↵ nueva línea</span><button id="sendBtn" class="send-button" aria-label="Enviar mensaje">↑</button></div></div><p class="disclaimer">NEXUS AI · MODO DE DEMOSTRACIÓN LOCAL · Verifica la información importante.</p></div>
+      </section>
+      <section class="view tool-view" id="notesView"><div class="tool-heading"><span class="tool-icon">▤</span><div><div class="eyebrow">TU ESPACIO PERSONAL</div><h2>Mis notas</h2><p>Guarda ideas y vuelve a ellas cuando quieras.</p></div></div><div class="notes-panel"><input id="noteTitle" placeholder="Título de tu nota"><textarea id="noteBody" placeholder="Escribe aquí tus ideas..."></textarea><div class="notes-actions"><span id="noteStatus">Se guardan en este dispositivo.</span><button class="primary-button" id="saveNote">Guardar nota <span>↗</span></button></div></div><div class="saved-notes" id="savedNotes"></div></section>
+      <section class="view tool-view" id="calculatorView"><div class="tool-heading"><span class="tool-icon">⌗</span><div><div class="eyebrow">HERRAMIENTAS NEXUS</div><h2>Calculadora</h2><p>Operaciones rápidas en tu espacio de trabajo.</p></div></div><div class="calculator"><div class="calc-screen"><small>NEXUS / CALC</small><div id="calcExpression"></div><output id="calcDisplay">0</output></div><div class="calc-keys"><button data-key="C" class="key utility">AC</button><button data-key="(" class="key utility">(</button><button data-key=")" class="key utility">)</button><button data-key="/" class="key operator">÷</button><button data-key="7" class="key">7</button><button data-key="8" class="key">8</button><button data-key="9" class="key">9</button><button data-key="*" class="key operator">×</button><button data-key="4" class="key">4</button><button data-key="5" class="key">5</button><button data-key="6" class="key">6</button><button data-key="-" class="key operator">−</button><button data-key="1" class="key">1</button><button data-key="2" class="key">2</button><button data-key="3" class="key">3</button><button data-key="+" class="key operator">+</button><button data-key="0" class="key zero">0</button><button data-key="." class="key">.</button><button data-key="back" class="key utility">⌫</button><button data-key="=" class="key equals">=</button></div></div></section>
+      <div class="toast" id="toast"></div>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
